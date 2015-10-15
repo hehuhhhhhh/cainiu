@@ -1,7 +1,7 @@
 <template name="home">
   <div class="page home">
 
-    {{>nav title='Local Market' black=true}}
+    {{>nav title='niuRank' black=true}}
 
     <div class="content-scrollable">
       <div class="bg-image home">
@@ -28,6 +28,10 @@
         </form> -->
         {{> niuSearch}}
       </div>
+      <div class="list-title">
+        <p>123</p>
+        {{> niuResult}}
+      </div>
       <!-- 
       <div class="list-activities">
         {{#each activities}}
@@ -41,8 +45,8 @@
       </div> -->
       <a href="{{pathFor 'feed'}}" class="btn-primary">Search</a>
 
-      <h2 class="list-title">Our Favorite Recipes</h2>
-      <div class="list-subtitle">Hand-picked by neighborhood chefs</div>
+      <h2 class="list-title">Hot Ranks</h2>
+      <div class="list-subtitle">See other people</div>
       <div class="list-recipes">
         {{#each featuredRecipes}}
           {{> recipeItem recipe=this size='small'}}
@@ -52,5 +56,27 @@
       <!-- <a href="{{pathFor 'recipes'}}" class="btn-primary">Explore all our recipes</a> -->
     </div>
 
+  </div>
+</template>
+
+
+<template name="niuSearch">
+  <form class="niuSearch">
+      <input type="text" name="query" class="niuSearch-input" placeholder="牛排一下">
+  </form>
+</template>
+
+<template name="niuResult">
+  <div class="niuResult">
+    {{#each result}}
+      {{> niuItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="niuItem">
+  <div class="niuItem">
+    <div class="niuItem_title">#{{index}}: {{title}}</div>
+    <div class="niuItem_desc">{{desc}}</div>
   </div>
 </template>
