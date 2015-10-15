@@ -1,0 +1,56 @@
+<template name="home">
+  <div class="page home">
+
+    {{>nav title='Local Market' black=true}}
+
+    <div class="content-scrollable">
+      <div class="bg-image home">
+        <h1 class="title-home" align="center" style="color:white">
+          niuRank
+          <!-- <img src="img/app/niurank.jpg" /> -->
+        </h1>
+        <span class="hours"><span class="title-callout">Discover!</span>
+        </span>
+        <span class="arrow"></span>
+      </div>
+
+      <div class="callout-news">
+        <span class="title-callout">News</span>
+        niuRank V0.1 is comming soon！
+        <!-- {{latestNews.text}} -->
+      </div>
+      
+      <div class="list-title">
+        <!-- <h2 class="list-title">What's Fucking</h2>
+        <div class="list-subtitle">See what the community is cooking</div> -->
+        <!-- <form class="list-subtitle">
+          <input type="text" name="search" placeholder="牛排一下">
+        </form> -->
+        {{> niuSearch}}
+      </div>
+      <!-- 
+      <div class="list-activities">
+        {{#each activities}}
+          {{> activity}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">No one is cooking yet!</div>
+            <div class="subtitle-message">Share that you made a recipe and it will show up here.</div>
+          </div>
+        {{/each}}
+      </div> -->
+      <a href="{{pathFor 'feed'}}" class="btn-primary">Search</a>
+
+      <h2 class="list-title">Our Favorite Recipes</h2>
+      <div class="list-subtitle">Hand-picked by neighborhood chefs</div>
+      <div class="list-recipes">
+        {{#each featuredRecipes}}
+          {{> recipeItem recipe=this size='small'}}
+        {{/each}}
+      </div>
+
+      <!-- <a href="{{pathFor 'recipes'}}" class="btn-primary">Explore all our recipes</a> -->
+    </div>
+
+  </div>
+</template>
